@@ -87,7 +87,79 @@
                             <input type="text" class="input">
                         </div>
                         <div class="form-sex">
-
+                            <div class="gender-wrap">
+                                <span class="gender icon-girl option-05">
+                                    <input type="radio" value="1">
+                                </span>
+                                <span class="gender icon-boy option-05">
+                                    <input type="radio" value="2">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label>昵称：</label>
+                            <div class="wrap">
+                                <div class="form-control">
+                                    <input type="text" class="input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label>年龄：</label>
+                            <div class="wrap">
+                                <div class="form-control">
+                                    <input type="text" class="input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label>电话：</label>
+                            <div class="wrap">
+                                <div class="form-control w-auto">
+                                    <select class="select">
+                                        <option value="+86"> +86 </option>
+                                        <option></option>
+                                        <option></option>
+                                    </select>
+                                </div>
+                                <div class="form-control">
+                                    <input type="text" class="input">
+                                </div>
+                                <div class="form-country">
+                                    <img src="http://www.web-jshtml.cn/curriculum/javascript/images/china.jpg" alt="中国">
+                                    <span class="form-country-name" style="color: red;">中国</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label>爱好：</label>
+                            <div class="wrap">
+                                <ul class="links-list display-ib">
+                                    <li style="background-color: #468d9c;">
+                                        <span>跑步</span>
+                                        <a href="javascript: void(0);">×</a>
+                                    </li>
+                                    <li>
+                                        <span>跑步</span>
+                                        <a href="javascript: void(0);">×</a>
+                                    </li>
+                                    <li>
+                                        <span>跑步</span>
+                                        <a href="javascript: void(0);">×</a>
+                                    </li>
+                                    <li>
+                                        <span>跑步</span>
+                                        <a href="javascript: void(0);">×</a>
+                                    </li>
+                                </ul>
+                                <div class="add-item-wrap display-ib pr">
+                                    <!-- 追加add-show 显示输入框-->
+                                    <div class="form-control">
+                                        <input type="text" class="input" placeholder="Enter键确认">
+                                    </div>
+                                    <button>+</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -110,9 +182,14 @@
         </div>
     </div>
 </body>
+<!-- 属于自己的封装 -->
 <script src="../js/cherry.js"></script>
+<!-- 每一行数据 -->
 <script src="../js/dataTable.js"></script>
 <script src="../js/creatTbodyData.js"></script>
+<!--请头接口，引入api.js-->
+<script src="http://www.web-jshtml.cn/curriculum/javascript/js/api.js"></script>
+<!-- 本页面的js -->
 <script src="../js/index.js"></script>
 
 </html>
