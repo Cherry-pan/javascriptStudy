@@ -54,6 +54,56 @@
     }
     window.cherry.getAttr = getAttr;
 
+    /** 
+     * 获取类名
+     * document.querySelectorAll("xxxx")  //数组对象
+        document.querySelector(".dddddd span")  //元素对象
+     */
+    function getClassName(className) {
+        return document.getElementsByClassName(className);
+
+    }
+    window.cherry.getClassName = getClassName;
+
+    /** 
+     * 使用querSelect获取类名
+     * document.querySelectorAll("xxxx")  //数组对象        
+     */
+    function getQuerSelect(className) {
+        return document.querySelector(className) //元素对象
+
+    }
+    window.cherry.getQuerSelect = getQuerSelect;
+
+    /** 
+     * 监听addEventListener
+     */
+    function addEvent(domNode, eventType, handleFn) {
+        //兼容性IE
+        if (window.addEventListener) {
+            domNode.addEventListener(eventType, handleFn)
+        } else {
+            domNode.attachEvent(`on${eventType}`, handleFn) //IE
+        }
+
+    }
+    window.cherry.addEvent = addEvent;
+
+    /** 
+     * 删除removeEventListener
+     */
+    function removeEvent(domNode, eventType, handleFn) {
+        //兼容性IE
+        if (window.addEventListener) {
+            domNode.removeEventListener(eventType, handleFn)
+        } else {
+            domNode.detachEvent(`on${eventType}`, handleFn) //IE
+        }
+
+    }
+    window.cherry.removeEvent = removeEvent;
+
+
 })()
 
 // window 全局

@@ -2,20 +2,29 @@
 
 // 找到table-data-wrap这个ID
 const wrap = window.cherry.$("table-data-wrap");
-
 // 获取id
-console.log(window.cherry.getAttr(wrap, "id"));
-
+// console.log(window.cherry.getAttr(wrap, "id"));
 //创建一个table
 const tableDom = window.cherry.createEl("table");
+// 获取添加信息按钮对象
+let addInfoButton = window.cherry.getClassName("add-info-button")[0];
+// 找到对应的ID，添加类名，获取form表单弹窗对象
+let infoDialog = window.cherry.$("info-dialog");
+// 关闭弹窗对象
+let closeDialog = window.cherry.getQuerSelect(".close-dialog");
+// 获取头像的类名
+let faceView = window.cherry.getClassName("face-view")[0];
+// 获取头像的列表区域
+let faceViewList = window.cherry.getQuerSelect(".face-view-list");
+console.log(faceViewList);
 
 // 设置属性
 let styles = {
-  width: "100%",
-  border: "0",
-  cellpadding: "0",
-  cellspacing: "0",
-  id: "table-data-wrap"
+    width: "100%",
+    border: "0",
+    cellpadding: "0",
+    cellspacing: "0",
+    id: "table-data-wrap"
 };
 window.cherry.setAttr(tableDom, styles);
 
@@ -23,12 +32,12 @@ window.cherry.setAttr(tableDom, styles);
 let theadHtml = `<thead><tr>`;
 
 tableTheadData.forEach(item => {
-  // 判断是否有width
-  let width = item.width ? ` width="${item.width}"` : "";
-  // 判断是否有id
-  let id = item.id ? ` id="${item.id}"` : "";
-  // 字符串拼接
-  theadHtml += `
+    // 判断是否有width
+    let width = item.width ? ` width="${item.width}"` : "";
+    // 判断是否有id
+    let id = item.id ? ` id="${item.id}"` : "";
+    // 字符串拼接
+    theadHtml += `
     <th${width}${id}>${item.label}</th>
     `;
 });
@@ -38,45 +47,35 @@ theadHtml += `</tr></thead>`;
  * 列表数据
  */
 let tboayHtml = `<tbody>`;
-let trHtml = ``;
-for (let i = 0; i < tabelBodyData.length; i++) {
-  const data = tabelBodyData[i];
-  console.log(data);
-  // 开始标签
-   trHtml += `<tr>`;
-  // 头像
-   trHtml += `<td>
-                <div class="face">
-                    <span class="gender icon-${data.face.gender}"></span>
-                    <img src="${data.face.img}" alt="">
-                </div>
-                </td>`;
-  // 姓名
-   trHtml += `<td>
-                <div class="people-name">
-                    <h4 class="name">${data.name.trueName}</h4>
-                    <span class="nickname option-05 fs-12">昵称：${data.name.nickName}</span>
-                </div>
-                </td>`;
-    // 性别
-    trHtml += ` <td>
-                <div class="gender-wrap">
-                    <span class="gender icon-girl ${data.face.gender==='girl'?'':'option-05'}"></span>
-                    <span class="gender icon-boy ${data.face.gender==='boy'?'':'option-05'}"></span>
-                </div>
-            </td>`;
-    // 年龄
-    trHtml += ` <td>
-                    <div class="age text-center">
-                            <p>${data.age.number}</p>
-                            <span class="option-05 fs-12">（单身狗）</span>
-                        </div>
-                 </tr>`;
-    trHtml += `</tr>`;
-}
-tboayHtml += `${trHtml}</tbody>`;
+tboayHtml += `${createTbody()}</tbody>`;
 
 // 生成表头
 tableDom.innerHTML = theadHtml + tboayHtml;
 
 wrap.append(tableDom);
+
+/**
+ * ************添加信息显示/隐藏**************************************************************
+/** 
+ * 获取类名
+ */
+// 显示弹窗
+window.cherry.addEvent(addInfoButton, "click", function() {
+        infoDialog.classList.add("dialog-show")
+    })
+    // 隐藏弹窗
+window.cherry.addEvent(closeDialog, "click", function() {
+    infoDialog.classList.remove("dialog-show")
+})
+
+/** 
+ * **************头像事件处理********************************************************
+ */
+window.cherry.addEvent(faceView, "click", function() {
+    handlerFaceList();
+})
+
+function handlerFaceListCallback(data) {
+    // for  of
+    console.log(data)
+}

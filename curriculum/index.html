@@ -39,9 +39,80 @@
         <div id="table-data-wrap"></div>
 
     </div>
+    <div class="button-fixed">
+        <span class="button">
+            <i class="icon"></i>
+        </span>
+        <ul>
+            <li>
+                <a href="javascript:void(0);" class="menu-button button add-info-button">添加信息</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 追加类名 dialog-show -->
+    <div id="info-dialog">
+        <div class="form-content">
+            <a href="javascript:void(0);" class="close-dialog">x</a>
+            <form>
+                <div class="form-item">
+                    <label>头像</label>
+                    <div class="wrap">
+                        <div class="form-face clearfix">
+                            <div class="face-view">
+                                <!-- <img src="http://www.web-jshtml.cn//curriculum/javascript/images/face/001.jpg" alt=""> -->
+                                <a href="javascript:viod(0);" class="face-del">x</a>
+                            </div>
+                            <ul class="face-view-list">
+                                <!-- <li><img src="http://www.web-jshtml.cn//curriculum/javascript/images/face/001.jpg" alt=""></li>
+                                <li><img src="http://www.web-jshtml.cn//curriculum/javascript/images/face/002.jpg" alt=""></li>
+                                <li><img src="http://www.web-jshtml.cn//curriculum/javascript/images/face/003.jpg" alt=""></li>
+                                <li><img src="http://www.web-jshtml.cn//curriculum/javascript/images/face/004.jpg" alt=""></li>
+                                <li><img src="http://www.web-jshtml.cn//curriculum/javascript/images/face/001.jpg" alt=""></li>
+                                <li><img src="http://www.web-jshtml.cn//curriculum/javascript/images/face/002.jpg" alt=""></li>
+                                <li><img src="http://www.web-jshtml.cn//curriculum/javascript/images/face/003.jpg" alt=""></li>
+                                <li><img src="http://www.web-jshtml.cn//curriculum/javascript/images/face/004.jpg" alt=""></li>
+                                <li><img src="http://www.web-jshtml.cn//curriculum/javascript/images/face/001.jpg" alt=""></li>
+                                <li><img src="http://www.web-jshtml.cn//curriculum/javascript/images/face/002.jpg" alt=""></li>
+                                <li><img src="http://www.web-jshtml.cn//curriculum/javascript/images/face/003.jpg" alt=""></li>
+                                <li><img src="http://www.web-jshtml.cn//curriculum/javascript/images/face/004.jpg" alt=""></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label><span>姓名：</span></label>
+                    <div class="wrap">
+                        <div class="form-control">
+                            <input type="text" class="input">
+                        </div>
+                        <div class="form-sex">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label>头衔：</label>
+                    <div class="wrap">
+                        <div class="grade">
+                            <div class="form-grade grade-wrap">
+                                <div class="grade-high icon-grade" style="width: 33.33332%"></div>
+                            </div>
+                            <span class="role-name">小白</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label>&nbsp;</label>
+                    <button type="submit" class="form-submit-button">确定</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 <script src="../js/cherry.js"></script>
 <script src="../js/dataTable.js"></script>
+<script src="../js/creatTbodyData.js"></script>
 <script src="../js/index.js"></script>
 
 </html>
