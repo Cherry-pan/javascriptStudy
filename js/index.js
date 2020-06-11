@@ -16,7 +16,6 @@ let closeDialog = window.cherry.getQuerSelect(".close-dialog");
 let faceView = window.cherry.getClassName("face-view")[0];
 // 获取头像的列表区域
 let faceViewList = window.cherry.getQuerSelect(".face-view-list");
-console.log(faceViewList);
 
 // 设置属性
 let styles = {
@@ -49,6 +48,8 @@ theadHtml += `</tr></thead>`;
 let tboayHtml = `<tbody>`;
 tboayHtml += `${createTbody()}</tbody>`;
 
+console.log(tboayHtml)
+
 // 生成表头
 tableDom.innerHTML = theadHtml + tboayHtml;
 
@@ -75,7 +76,33 @@ window.cherry.addEvent(faceView, "click", function() {
     handlerFaceList();
 })
 
+/**
+ * 事件委托机制，由父元素代替所有的子元素执行点击事件，节省空间
+ */
+window.cherry.addEvent(faceViewList, "click", function(e) {
+    // 创建img标签
+    let createImg = window.cherry.createEl("img");
+    window.cherry.addChild(faceView, createImg);
+
+    // 有可能没有点到img身上，点到了li身上
+    if (e.target.nodeName.toLowerCase() === "li") {
+        // 拿到li标签中的img的src
+        let img = window.cherry.getChildren(e.target)[0]; //数组
+        console.log(img)
+        createImg.src = img.src;
+    }
+    if (e.target.nodeName.toLowerCase() === "img") {
+        createImg.src = e.target.src;
+    }
+
+})
+
 function handlerFaceListCallback(data) {
     // for  of
-    console.log(data)
+    let requestData = data.data;
+    let liHtml = ``;
+    for (let key of requestData) {
+        liHtml += ` <li><img src="${key}" alt=""></li>`;
+    }
+    faceViewList.innerHTML = liHtml;
 }

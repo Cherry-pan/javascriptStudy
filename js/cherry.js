@@ -27,26 +27,6 @@
     window.cherry.$ = $;
 
     /**
-     * 创建元素
-     */
-    function createEl(node) {
-        return document.createElement(node);
-    }
-    window.cherry.createEl = createEl;
-
-    /**
-     * 设置节点属性
-     */
-    function setAttr(node, styles) {
-        // 不需要返回值
-        for (const key in styles) {
-            // 每次只能设置一个属性，需要遍历
-            node.setAttribute(key, styles[key]);
-        }
-    }
-    window.cherry.setAttr = setAttr;
-
-    /**
      * 获取节点属性
      */
     function getAttr(node, value) {
@@ -74,6 +54,42 @@
 
     }
     window.cherry.getQuerSelect = getQuerSelect;
+
+    /**
+     * @param {获取标签对象} node 
+     */
+    function getTagName(parentNode, target) {
+        return parentNode.getElementsByTagName(target);
+    }
+    window.cherry.getTagName = getTagName;
+
+    /**
+     * @param {获取标签对象第一层级} node 
+     */
+    function getChildren(parentNode) {
+        return parentNode.children; //数组
+    }
+    window.cherry.getChildren = getChildren;
+
+    /**
+     * 创建元素
+     */
+    function createEl(node) {
+        return document.createElement(node);
+    }
+    window.cherry.createEl = createEl;
+
+    /**
+     * 设置节点属性
+     */
+    function setAttr(node, styles) {
+        // 不需要返回值
+        for (const key in styles) {
+            // 每次只能设置一个属性，需要遍历
+            node.setAttribute(key, styles[key]);
+        }
+    }
+    window.cherry.setAttr = setAttr;
 
     /** 
      * 监听addEventListener
@@ -103,6 +119,14 @@
     }
     window.cherry.removeEvent = removeEvent;
 
+    /**
+     * 添加子节点到父级的末尾
+     */
+    function addChild(parent, childNode) {
+        parent.appendChild(childNode);
+
+    }
+    window.cherry.addChild = addChild;
 
 })()
 
